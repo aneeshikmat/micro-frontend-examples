@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice Iframe</title>
+</head>
+<body>
+  <h2>Invoice Iframe</h2>
+  <button onclick="sendMessageToHost()">Send to Status Iframe</button>
+
+  <script>
+    // 2nees.com => هذا مثال توضيحي، لكن هناك العديد من الإعدادات المهمة والآمنية التي يجب أن تراعيها !
+    function sendMessageToHost() {
+      const message = {
+        from: "invoiceIframe",
+        to: "statusIframe",
+        text: "Invoice received!"
+      };
+
+      window.parent.postMessage(message);
+    }
+  </script>
+</body>
+</html>

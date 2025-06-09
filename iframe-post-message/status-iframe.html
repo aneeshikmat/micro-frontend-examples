@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Status iframe</title>
+</head>
+<body>
+<h2>Status Iframe</h2>
+<div id="messageBox">Waiting invoice status...</div>
+
+<script>
+  // 2nees.com => هذا مثال توضيحي، لكن هناك العديد من الإعدادات المهمة والآمنية التي يجب أن تراعيها !
+  window.addEventListener("message", function(event) {
+    if (event.data.to !== "statusIframe") return;
+
+    document.getElementById("messageBox").innerText = event.data?.text;
+  });
+</script>
+</body>
+</html>
