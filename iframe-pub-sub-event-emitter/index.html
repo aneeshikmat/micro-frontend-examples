@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Host Page</title>
+</head>
+<body>
+<h1>Host Page</h1>
+<iframe id="invoice-iframe" src="invoice-iframe.html" width="400" height="200"></iframe>
+<iframe id="status-iframe" src="status-iframe.html" width="400" height="200"></iframe>
+
+<h4>Thank you for your invoice!</h4>
+<div id="messageBox"></div>
+
+<script src="shared-event-emitter.js"></script>
+<script>
+  // 2nees.com => هذا مثال توضيحي، لكن هناك العديد من الإعدادات المهمة والآمنية التي يجب أن تراعيها !
+  const invoiceIframe = document.getElementById("invoice-iframe");
+  const statusIframe = document.getElementById("status-iframe");
+
+  invoiceIframe.contentWindow.appEventEmitter = sharedEventEmitter;
+  statusIframe.contentWindow.appEventEmitter = sharedEventEmitter;
+
+  sharedEventEmitter.on('invoiceReady', (data) => {
+    document.getElementById("messageBox").innerText = `Thanks for waiting! Your invoice is ready - ${data}`;
+  });
+</script>
+</body>
+</html>

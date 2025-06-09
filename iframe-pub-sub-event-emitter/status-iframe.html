@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Status iframe</title>
+</head>
+<body>
+<h2>Status Iframe</h2>
+<div id="messageBox">Waiting invoice status...</div>
+
+<script>
+  // 2nees.com => هذا مثال توضيحي، لكن هناك العديد من الإعدادات المهمة والآمنية التي يجب أن تراعيها !
+  window.onload = function () {
+    const appEventEmitter = window.appEventEmitter;
+
+    if (appEventEmitter){
+      appEventEmitter.on('invoiceReady', (data) => {
+        document.getElementById("messageBox").innerText = data;
+      });
+    }
+  };
+</script>
+</body>
+</html>
