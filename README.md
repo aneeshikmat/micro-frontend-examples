@@ -1,9 +1,11 @@
-# micro-frontend-examples
-These examples were created or written in the Micro-Frontend book authored by Anees Hikmat.
+# أمثلة على الواجهات الأمامية المصغرة (micro-frontend)
+*اقرأ هذا باللغة [الإنجليزية](README.en.md)*
 
-## 🚧 Work in Progress
+تم إنشاء أو كتابة هذه الأمثلة لخدمة كتاب micro-frontend باللغة العربية لمؤلفه أنيس حكمت أبو حميد.
 
-**This repository is currently under active development.**  
-The core code and example files are still being prepared and are not yet complete or fully functional.
+## 🚧 قيد التطوير
 
-Please check back soon for updates. Contributions, suggestions, and feedback are welcome in the meantime!
+**هذا المستودع قيد التطوير.**  
+الأمثلة ما زالت غير مكتملة وقيد العمل عليها ^^
+
+يرجى العودة قريبًا للحصول على آخر المستجدات، علما أن المساهمات والاقتراحات والملاحظات مرحب بها في هذه الأثناء!
