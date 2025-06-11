@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Component Ex 1: 2nees.com</title>
+  <style>
+    body, html {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+    }
+    .heading-style {
+      padding: 10px;
+      background: #00ff00;
+    }
+  </style>
+</head>
+<body>
+
+<mfe-with-shadow></mfe-with-shadow>
+
+<mfe-without-shadow></mfe-without-shadow>
+
+<script type="module" src="component-without-shadow.js"></script>
+<script type="module" src="component-with-shadow.js"></script>
+</body>
+</html>
