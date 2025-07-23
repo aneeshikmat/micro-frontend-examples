@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro-Frontend Example with SSI and Nginx</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-container {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Header Micro-Frontend using SSI with the /ssi/ prefix -->
+    <!--# include virtual="/ssi/header/" -->
+    
+    <main class="main-container">
+        <!-- Include Content Micro-Frontend using SSI with the /ssi/ prefix -->
+        <!--# include virtual="/ssi/content/" -->
+    </main>
+    
+    <!-- Include Footer Micro-Frontend using SSI with the /ssi/ prefix -->
+    <!--# include virtual="/ssi/footer/" -->
+    
+    <script>
+        console.log('Main application loaded');
+        
+        // You can add event listeners or other logic to coordinate between micro-frontends
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('All micro-frontends loaded and composed by SSI');
+        });
+    </script>
+</body>
+</html>
