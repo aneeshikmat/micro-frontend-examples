@@ -18,7 +18,7 @@
 
 ## ما هو ESI؟
 
-**Edge Side Includes (ESI)** هي لغة ترميز تُستخدم لتوجيه خوادم مثل Varnish أو CDN لطلب ودمج محتوى من مصادر مختلفة. بخلاف **Server-Side Includes (SSI)**، تتم معالجة ESI عند أي على مستوى CDN أو الـ reverse proxy، وليس على خادم الويب نفسه.
+ال **Edge Side Includes (ESI)** هي لغة ترميز تُستخدم لتوجيه خوادم مثل Varnish أو CDN لطلب ودمج محتوى من مصادر مختلفة، بخلاف **Server-Side Includes (SSI)**، تتم معالجة ESI عند على مستوى CDN أو الـ reverse proxy وليس على خادم الويب نفسه.
 
 ---
 
