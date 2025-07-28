@@ -20,13 +20,11 @@ function getFooterContent() {
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="https://www.w3.org/TR/esi-lang">ESI Language Specification</a></li>
-                    <li><a href="https://varnish-cache.org/docs/trunk/users-guide/esi.html">Varnish ESI Documentation</a></li>
-                    <li><a href="https://developer.akamai.com/learn/FrontEnd/ESI.html">Akamai ESI Documentation</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p>Email: info@2nees.com</p>
+                <p>Email: example@2nees.com</p>
                 <p>Website: <a href="https://2nees.com">2nees.com</a></p>
             </div>
         </div>
