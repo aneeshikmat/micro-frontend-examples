@@ -1,0 +1,85 @@
+services:
+  # Varnish service for ESI processing
+  varnish:
+    build:
+      context: ./varnish
+      dockerfile: Dockerfile
+    ports:
+      - "7222:80"
+    depends_on:
+      - nginx
+    restart: unless-stopped
+    networks:
+      - mfe-network
+    # Add DNS settings to ensure proper name resolution
+    dns:
+      - 127.0.0.11
+
+  # Nginx service for serving static content and proxying to micro-frontends
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/html:/usr/share/nginx/html:ro
+    depends_on:
+      - header
+      - content
+      - footer
+    restart: unless-stopped
+    networks:
+      - mfe-network
+    # Add DNS settings to ensure proper name resolution
+    dns:
+      - 127.0.0.11
+
+  # Header micro-frontend service
+  header:
+    build:
+      context: ./header
+      dockerfile: Dockerfile
+    volumes:
+      - ./header:/app
+      - header_node_modules:/app/node_modules
+    environment:
+      - PORT=7210
+    networks:
+      - mfe-network
+
+  # Content micro-frontend service
+  content:
+    build:
+      context: ./content
+      dockerfile: Dockerfile
+    volumes:
+      - ./content:/app
+      - content_node_modules:/app/node_modules
+    environment:
+      - PORT=7211
+    networks:
+      - mfe-network
+
+  # Footer micro-frontend service
+  footer:
+    build:
+      context: ./footer
+      dockerfile: Dockerfile
+    volumes:
+      - ./footer:/app
+      - footer_node_modules:/app/node_modules
+    environment:
+      - PORT=7212
+    networks:
+      - mfe-network
+
+# Define a custom network for the services
+networks:
+  mfe-network:
+    driver: bridge
+
+# Define volumes for node_modules
+volumes:
+  header_node_modules:
+  content_node_modules:
+  footer_node_modules:
