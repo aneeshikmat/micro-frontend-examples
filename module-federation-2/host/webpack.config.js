@@ -23,7 +23,7 @@ module.exports = {
     ],
   },
   devServer: {
-    port: 3000,
+    port: 8100,
     static: {
       directory: path.join(__dirname, "public"),
     },
@@ -36,9 +36,8 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "host",
       remotes: {
-        header: "header@http://localhost:3001/remoteEntry.js",
-        footer: "footer@http://localhost:3002/remoteEntry.js",
-        dashboard: "dashboard@http://localhost:3003/remoteEntry.js",
+        header: "header@http://localhost:8101/remoteEntry.js",
+        signin: "signin@http://localhost:8102/remoteEntry.js",
       },
       shared: {
         react: { 
