@@ -39,6 +39,9 @@ module.exports = {
         header: "header@http://localhost:8101/remoteEntry.js",
         signin: "signin@http://localhost:8102/remoteEntry.js",
       },
+      exposes: {
+        "./eventBus": "./src/eventBus.js",
+      },
       shared: {
         react: { 
           singleton: true, 

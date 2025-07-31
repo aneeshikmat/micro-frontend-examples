@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import {useNavigate} from "react-router-dom";
+import eventBus from 'host/eventBus';
 
 const Signin = () => {
   // في العالم الحقيقي لا تقم بتصميم هذه الصفحة بهذه الشكل ^ـ*...هناك طرق أفضل وأسهل.. لكن لغايات الشرح فهذا أفضل
@@ -52,6 +53,11 @@ const Signin = () => {
     
     // In a real application, you would handle authentication here
     localStorage.setItem('isLoggedIn', "true");
+    
+    // Emit login event through eventBus
+    eventBus.emit('user:login', { email });
+    
+    navigate('/');
   };
 
   const handleCloseSnackbar = (event, reason) => {

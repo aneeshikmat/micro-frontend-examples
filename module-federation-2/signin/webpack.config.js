@@ -38,6 +38,9 @@ module.exports = {
       exposes: {
         "./Signin": "./src/Signin",
       },
+      remotes: {
+        host: "host@http://localhost:8100/remoteEntry.js",
+      },
       shared: {
         react: { 
           singleton: true, 

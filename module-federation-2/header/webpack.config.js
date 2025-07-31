@@ -38,6 +38,9 @@ module.exports = {
       exposes: {
         "./Header": "./src/Header",
       },
+      remotes: {
+        host: "host@http://localhost:8100/remoteEntry.js",
+      },
       shared: {
         react: { 
           singleton: true, 
