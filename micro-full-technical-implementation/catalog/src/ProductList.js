@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { 
+import {
   Grid, 
   Card, 
   CardContent, 
@@ -10,6 +9,7 @@ import {
   CardActions,
   Box
 } from '@mui/material';
+import ForExampleLink from "./ForExampleLink";
 
 // Mock product data
 const products = [
@@ -84,7 +84,7 @@ const ProductList = () => {
                 <CardActions>
                   <Button
                     size="small"
-                    component={RouterLink}
+                    component={ForExampleLink}
                     to={`/details/${product.id}`}
                   >
                     View Details

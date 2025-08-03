@@ -1,12 +1,11 @@
 import React from 'react';
-import { useParams, Link as RouterLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { 
   Box, 
   Typography, 
   Button, 
   Card, 
   CardMedia, 
-  CardContent,
   Grid,
   Divider,
   Paper,
@@ -15,6 +14,7 @@ import {
   ListItemText
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ForExampleLink from "./ForExampleLink";
 
 // Mock product data (same as in ProductList for consistency)
 const products = [
@@ -98,7 +98,7 @@ const products = [
 
 const BackLink = () => <Button
   variant="outlined"
-  component={RouterLink}
+  component={ForExampleLink}
   to="/list"
   startIcon={<ArrowBackIcon />}
   sx={{ mb: 3 }}
