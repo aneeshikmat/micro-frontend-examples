@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {AppBar, Toolbar, Typography, Button, Box} from '@mui/material';
 import {Link} from 'react-router-dom';
 import eventBus from 'host/eventBus';
@@ -37,27 +37,23 @@ const Header = () => {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-          Module Federation Example
+          Micro Frontend Full Technical Implementation Example
         </Typography>
         <Box>
-          <Button color="inherit" component={Link} to="/">
-            Home
-          </Button>
-          <Button color="inherit" component={Link} to="/about">
-            About
-          </Button>
-          <Button color="inherit" component={Link} to="/dashboard">
-            Dashboard
-          </Button>
-
           {!isLoggedIn ? (
             <Button color="inherit" component={Link} to="/signin">
               Sign In
             </Button>
           ) : (
-            <Button color="inherit" component={Link} to="/" onClick={handleLogout}>
-              Sign Out
-            </Button>
+            <>
+              <Button color="inherit" component={Link} to="/">
+                Home
+              </Button>
+
+              <Button color="inherit" component={Link} to="/signin" onClick={handleLogout}>
+                Sign Out
+              </Button>
+            </>
           )}
         </Box>
       </Toolbar>
