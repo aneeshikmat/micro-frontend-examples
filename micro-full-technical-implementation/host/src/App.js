@@ -1,5 +1,5 @@
-import React, {Suspense, useEffect, useLayoutEffect} from 'react';
-import {BrowserRouter as Router, Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import React, {Suspense, useEffect} from 'react';
+import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
 import { Box, Container, CircularProgress, Typography } from '@mui/material';
 
 // Lazy load remote components
