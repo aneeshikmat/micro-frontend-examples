@@ -1,18 +1,22 @@
-# Module Federation Example
+# مثال ال Module Federation
 
-This example demonstrates how to use Webpack Module Federation to create a micro-frontend architecture with React, Material UI, and React Router.
+يوضح هذا المثال كيفية استخدام ال Webpack Module Federation لإنشاء بنية ال micro-frontend باستخدام ال React وال Material UI وال React Router.
 
-## Modules
+## ال Modules
 
-- **Host**: The main application that consumes the federated modules
-- **Header**: A navigation header component
-- **Signin**: A signin form component
+- **ال Host**: التطبيق الرئيسي الذي يقوم بتحميل ال micros
+- **ال Header**: للتنقل
+- **ال Signin**: نموذج تسجيل الدخول
+- **ال AccountDetails**:  يعرض معلومات حساب المستخدم
+- **ال PaymentDetails**:  يعرض طرق الدفع وسجل المعاملات
+- **ال Catalog**:  يعرض قائمة المنتجات وتفاصيلها
+- **ال MyAccount**:  يدمج مكونات تفاصيل الحساب وتفاصيل الدفع في واجهة مبوبة (يمثل بنية معمارية horizontal)
 
-## Running the Example
+## تشغيل المثال
 
-To run the example, you need to start each module separately:
+لتشغيل المثال، تحتاج إلى بدء كل module بشكل منفصل:
 
-1. First, install dependencies in each module:
+1. أولاً، قم بتثبيت الاعتماديات المطلوبة لكل module:
 
 ```bash
 # Install dependencies in the header module
@@ -23,12 +27,28 @@ npm install
 cd ../signin
 npm install
 
+# Install dependencies in the accountdetails module
+cd ../accountdetails
+npm install
+
+# Install dependencies in the paymentdetails module
+cd ../paymentdetails
+npm install
+
+# Install dependencies in the catalog module
+cd ../catalog
+npm install
+
+# Install dependencies in the myaccount module
+cd ../myaccount
+npm install
+
 # Install dependencies in the host module
 cd ../host
 npm install
 ```
 
-2. Start each module in a separate terminal:
+2. قم بتشغيل جميع ال micros:
 
 ```bash
 # Start the header module
@@ -39,21 +59,36 @@ npm run dev
 cd ../signin
 npm run dev
 
+# Start the accountdetails module
+cd ../accountdetails
+npm run dev
+
+# Start the paymentdetails module
+cd ../paymentdetails
+npm run dev
+
+# Start the catalog module
+cd ../catalog
+npm run dev
+
+# Start the myaccount module
+cd ../myaccount
+npm run dev
+
 # Start the host module
 cd ../host
 npm run dev
 ```
 
-3. Open your browser and navigate to http://localhost:8100
+3. افتح متصفحك وانتقل إلى http://localhost:8100
 
-## Features
+## تفاصيل التنفيذ
+- كل micro هو تطبيق منفصل يمكن تطويره ونشره بشكل مستقل
+- تشارك ال micro التبعيات باستخدام ال Webpack Module Federation
+- يقوم تطبيق ال host بتحميل ال micro البعيدة بكسل باستخدام React.lazy() وال Suspense
+- المعمارية المستخدمة هي hybrid بين ال Vertical وال horizontal
+- تم استخدام ال event bus لمشاركة الأحداث
 
-- **Header Module**: Provides a navigation header with links to different pages
-- **Signin Module**: Provides a signin form with validation
-- **Host Module**: Consumes the header and signin modules and provides routing
-
-## Implementation Details
-
-- Each module is a separate application that can be developed and deployed independently
-- The modules share dependencies using Webpack Module Federation
-- The host application lazy loads the remote modules using React.lazy() and Suspense
+## ملاحظات مهمة
+ يمثل هذا المشروع مثال فيه العديد من الخصائص التي لا يشترط وجوودها أو تنفيذها بهذا الشكل
+ وإنما الغرض محاولة مشاركة أكبر كم ممكن من اتخصائص والإعدادات حتى تتمكن من حل المشاكل المستقبلية وفهم آلية التعامل مع الإعدادات والمكونات المختلفة.
