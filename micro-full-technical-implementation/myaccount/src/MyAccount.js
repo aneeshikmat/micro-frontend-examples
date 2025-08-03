@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Box, Container, Typography, Tabs, Tab, CircularProgress, Paper } from '@mui/material';
+import { Box, Container, Typography, CircularProgress, Paper } from '@mui/material';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 // Lazy load remote components
