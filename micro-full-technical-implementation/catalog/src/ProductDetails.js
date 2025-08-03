@@ -23,7 +23,7 @@ const products = [
     name: 'Product 1',
     description: 'This is a description for Product 1. It is a great product with many features.',
     price: '$19.99',
-    imageUrl: 'https://via.placeholder.com/600x400',
+    imageUrl: 'https://2nees.com/img/pages/58.jpg',
     details: [
       'High-quality materials',
       'Durable construction',
@@ -42,7 +42,7 @@ const products = [
     name: 'Product 2',
     description: 'This is a description for Product 2. It is an amazing product that you will love.',
     price: '$29.99',
-    imageUrl: 'https://via.placeholder.com/600x400',
+    imageUrl: 'https://2nees.com/img/pages/58.jpg',
     details: [
       'Premium quality',
       'Advanced features',
@@ -61,7 +61,7 @@ const products = [
     name: 'Product 3',
     description: 'This is a description for Product 3. It is a fantastic product with excellent quality.',
     price: '$39.99',
-    imageUrl: 'https://via.placeholder.com/600x400',
+    imageUrl: 'https://2nees.com/img/pages/58.jpg',
     details: [
       'Innovative technology',
       'Sleek design',
@@ -80,7 +80,7 @@ const products = [
     name: 'Product 4',
     description: 'This is a description for Product 4. It is a wonderful product that exceeds expectations.',
     price: '$49.99',
-    imageUrl: 'https://via.placeholder.com/600x400',
+    imageUrl: 'https://2nees.com/img/pages/58.jpg',
     details: [
       'Superior craftsmanship',
       'Exceptional durability',
@@ -96,13 +96,24 @@ const products = [
   }
 ];
 
+const BackLink = () => <Button
+  variant="outlined"
+  component={RouterLink}
+  to="/list"
+  startIcon={<ArrowBackIcon />}
+  sx={{ mb: 3 }}
+>
+  Back to Products
+</Button>;
+
+
 const ProductDetails = () => {
   const { id } = useParams();
   const productId = parseInt(id, 10);
   
   // Find the product with the matching ID
   const product = products.find(p => p.id === productId);
-  
+
   // If product not found
   if (!product) {
     return (
@@ -110,29 +121,14 @@ const ProductDetails = () => {
         <Typography variant="h5" color="error" gutterBottom>
           Product not found
         </Typography>
-        <Button 
-          variant="contained" 
-          component={RouterLink} 
-          to="/catalog/list"
-          startIcon={<ArrowBackIcon />}
-        >
-          Back to Products
-        </Button>
+        <BackLink />
       </Box>
     );
   }
   
   return (
     <Box>
-      <Button 
-        variant="outlined" 
-        component={RouterLink} 
-        to="/catalog/list"
-        startIcon={<ArrowBackIcon />}
-        sx={{ mb: 3 }}
-      >
-        Back to Products
-      </Button>
+      <BackLink />
       
       <Paper elevation={2} sx={{ p: 3, mb: 4 }}>
         <Grid container spacing={4}>

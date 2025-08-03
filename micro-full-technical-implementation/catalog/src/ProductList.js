@@ -18,28 +18,28 @@ const products = [
     name: 'Product 1',
     description: 'This is a description for Product 1. It is a great product with many features.',
     price: '$19.99',
-    imageUrl: 'https://via.placeholder.com/300x200'
+    imageUrl: 'https://2nees.com/img/pages/58.jpg'
   },
   {
     id: 2,
     name: 'Product 2',
     description: 'This is a description for Product 2. It is an amazing product that you will love.',
     price: '$29.99',
-    imageUrl: 'https://via.placeholder.com/300x200'
+    imageUrl: 'https://2nees.com/img/pages/58.jpg'
   },
   {
     id: 3,
     name: 'Product 3',
     description: 'This is a description for Product 3. It is a fantastic product with excellent quality.',
     price: '$39.99',
-    imageUrl: 'https://via.placeholder.com/300x200'
+    imageUrl: 'https://2nees.com/img/pages/58.jpg'
   },
   {
     id: 4,
     name: 'Product 4',
     description: 'This is a description for Product 4. It is a wonderful product that exceeds expectations.',
     price: '$49.99',
-    imageUrl: 'https://via.placeholder.com/300x200'
+    imageUrl: 'https://2nees.com/img/pages/58.jpg'
   }
 ];
 
@@ -85,7 +85,7 @@ const ProductList = () => {
                   <Button
                     size="small"
                     component={RouterLink}
-                    to={`/catalog/details/${product.id}`}
+                    to={`/details/${product.id}`}
                   >
                     View Details
                   </Button>
