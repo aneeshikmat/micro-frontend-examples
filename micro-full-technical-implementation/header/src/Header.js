@@ -49,6 +49,10 @@ const Header = () => {
               <Button color="inherit" component={Link} to="/">
                 Home
               </Button>
+              
+              <Button color="inherit" component={Link} to="/catalog">
+                Catalog
+              </Button>
 
               <Button color="inherit" component={Link} to="/signin" onClick={handleLogout}>
                 Sign Out

@@ -5,6 +5,7 @@ import { Box, Container, CircularProgress, Typography } from '@mui/material';
 // Lazy load remote components
 const Header = React.lazy(() => import('header/Header'));
 const Signin = React.lazy(() => import('signin/Signin'));
+const Catalog = React.lazy(() => import('catalog/Catalog'));
 
 // Local components for different routes
 const Home = () => (
@@ -48,6 +49,14 @@ const App = () => {
                 <Signin />
               </Suspense>
             } />
+            <Route path="/catalog/*" element={
+              <AuthWrapper>
+                <Suspense fallback={<CircularProgress />}>
+                  <Catalog />
+                </Suspense>
+              </AuthWrapper>
+            } />
+            <Route path="*" element={<Box>404</Box>} />
           </Routes>
         </Container>
       </Box>

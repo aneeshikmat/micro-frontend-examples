@@ -23,25 +23,23 @@ module.exports = {
     ],
   },
   devServer: {
-    port: 8100,
+    port: 8103,
     static: {
       directory: path.join(__dirname, "public"),
     },
-    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
     new ModuleFederationPlugin({
-      name: "host",
-      remotes: {
-        header: "header@http://localhost:8101/remoteEntry.js",
-        signin: "signin@http://localhost:8102/remoteEntry.js",
-        catalog: "catalog@http://localhost:8103/remoteEntry.js",
-      },
+      name: "catalog",
+      filename: "remoteEntry.js",
       exposes: {
-        "./eventBus": "./src/eventBus.js",
+        "./Catalog": "./src/Catalog",
+      },
+      remotes: {
+        host: "host@http://localhost:8100/remoteEntry.js",
       },
       shared: {
         react: { 
