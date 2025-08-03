@@ -6,18 +6,7 @@ import { Box, Container, CircularProgress, Typography } from '@mui/material';
 const Header = React.lazy(() => import('header/Header'));
 const Signin = React.lazy(() => import('signin/Signin'));
 const Catalog = React.lazy(() => import('catalog/Catalog'));
-
-// Local components for different routes
-const Home = () => (
-  <Box sx={{ my: 4 }}>
-    <Typography variant="h4" component="h1" gutterBottom>
-      Home Page
-    </Typography>
-    <Typography variant="body1">
-      Welcome to the Module Federation Example with Material UI and React Router!
-    </Typography>
-  </Box>
-);
+const MyAccount = React.lazy(() => import('myaccount/MyAccount'));
 
 const AuthWrapper = ({ children }) => {
   const navigate = useNavigate();
@@ -43,7 +32,13 @@ const App = () => {
         {/* Main content */}
         <Container component="main" sx={{ flex: 1, py: 3 }}>
           <Routes>
-            <Route path="/" element={<AuthWrapper><Home /></AuthWrapper>} />
+            <Route path="/" element={
+              <AuthWrapper>
+                <Suspense fallback={<CircularProgress />}>
+                  <MyAccount />
+                </Suspense>
+              </AuthWrapper>
+            } />
             <Route path="/signin" element={
               <Suspense fallback={<CircularProgress />}>
                 <Signin />

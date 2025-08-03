@@ -23,7 +23,7 @@ module.exports = {
     ],
   },
   devServer: {
-    port: 8100,
+    port: 8105,
     static: {
       directory: path.join(__dirname, "public"),
     },
@@ -34,15 +34,13 @@ module.exports = {
       template: "./public/index.html",
     }),
     new ModuleFederationPlugin({
-      name: "host",
-      remotes: {
-        header: "header@http://localhost:8101/remoteEntry.js",
-        signin: "signin@http://localhost:8102/remoteEntry.js",
-        catalog: "catalog@http://localhost:8103/remoteEntry.js",
-        myaccount: "myaccount@http://localhost:8106/remoteEntry.js",
-      },
+      name: "paymentdetails",
+      filename: "remoteEntry.js",
       exposes: {
-        "./eventBus": "./src/eventBus.js",
+        "./PaymentDetails": "./src/PaymentDetails",
+      },
+      remotes: {
+        host: "host@http://localhost:8100/remoteEntry.js",
       },
       shared: {
         react: { 
