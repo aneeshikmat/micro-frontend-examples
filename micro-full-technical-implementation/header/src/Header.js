@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {AppBar, Toolbar, Typography, Button, Box, Stack} from '@mui/material';
+import {AppBar, Toolbar, Typography, Button, Stack} from '@mui/material';
 import {Link, useLocation} from 'react-router-dom';
 import eventBus from 'host/eventBus';
 

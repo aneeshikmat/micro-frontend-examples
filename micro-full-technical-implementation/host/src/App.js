@@ -1,6 +1,6 @@
 import React, {Suspense, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
-import { Box, Container, CircularProgress, Typography } from '@mui/material';
+import { Box, Container, CircularProgress } from '@mui/material';
 
 // Lazy load remote components
 const Header = React.lazy(() => import('header/Header'));
