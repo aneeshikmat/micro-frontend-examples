@@ -1,7 +1,9 @@
-import React from 'react';
-import { Box, Container, Typography, Paper, Grid, Card, CardContent, Divider, Chip } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Container, Typography, Paper, Grid, Card, CardContent, Divider, Chip, Button } from '@mui/material';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import PaymentIcon from '@mui/icons-material/Payment';
+import AddIcon from '@mui/icons-material/Add';
+import eventBus from 'host/eventBus';
 
 const PaymentDetails = () => {
   // Mock payment data
@@ -24,7 +26,8 @@ const PaymentDetails = () => {
     }
   ];
 
-  const paymentHistory = [
+  // Use state for payment history to allow dynamic updates
+  const [paymentHistory, setPaymentHistory] = useState([
     {
       id: 1,
       date: 'August 1, 2025',
@@ -46,7 +49,28 @@ const PaymentDetails = () => {
       status: 'Completed',
       method: 'Credit Card (*4567)'
     }
-  ];
+  ]);
+
+  // Function to add a new payment history row
+  const addPaymentHistoryRow = () => {
+    // Create a new payment history entry
+    const newPayment = {
+      id: paymentHistory.length + 1,
+      date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      amount: `$${Math.floor(Math.random() * 100) + 10}`,
+      status: 'Completed',
+      method: 'Credit Card (*4567)'
+    };
+    
+    // Update the payment history state
+    setPaymentHistory((prevState) => [
+      ...prevState,
+      newPayment
+    ]);
+
+    // Emit an event to notify AccountDetails to increase historical orders
+    eventBus.emit('payment:history:added', { count: paymentHistory.length + 1 });
+  };
 
   return (
     <Container component="main" sx={{ py: 3 }}>
@@ -92,9 +116,19 @@ const PaymentDetails = () => {
 
         <Divider sx={{ my: 3 }} />
 
-        <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-          Payment History
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 3, mb: 2 }}>
+          <Typography variant="h6" gutterBottom sx={{ mb: 0 }}>
+            Payment History
+          </Typography>
+          <Button 
+            variant="contained" 
+            color="primary" 
+            startIcon={<AddIcon />}
+            onClick={addPaymentHistoryRow}
+          >
+            Add Payment History
+          </Button>
+        </Box>
         
         <Grid container spacing={2}>
           {paymentHistory.map((payment) => (

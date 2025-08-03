@@ -7,12 +7,6 @@ const AccountDetails = React.lazy(() => import('accountdetails/AccountDetails'))
 const PaymentDetails = React.lazy(() => import('paymentdetails/PaymentDetails'));
 
 const MyAccount = () => {
-  const [tabValue, setTabValue] = React.useState(0);
-
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
-
   return (
     <Container component="main" sx={{ py: 3 }}>
       <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
@@ -23,37 +17,22 @@ const MyAccount = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ width: '100%', mb: 3 }}>
-          <Tabs 
-            value={tabValue} 
-            onChange={handleTabChange} 
-            aria-label="account tabs"
-            variant="fullWidth"
-          >
-            <Tab label="Account Details" />
-            <Tab label="Payment Details" />
-          </Tabs>
-        </Box>
-
         <Box sx={{ mt: 2 }}>
-          {tabValue === 0 && (
-            <Suspense fallback={
-              <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
-                <CircularProgress />
-              </Box>
-            }>
-              <AccountDetails />
-            </Suspense>
-          )}
-          {tabValue === 1 && (
-            <Suspense fallback={
-              <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
-                <CircularProgress />
-              </Box>
-            }>
-              <PaymentDetails />
-            </Suspense>
-          )}
+          <Suspense fallback={
+            <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
+              <CircularProgress />
+            </Box>
+          }>
+            <AccountDetails />
+          </Suspense>
+
+          <Suspense fallback={
+            <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
+              <CircularProgress />
+            </Box>
+          }>
+            <PaymentDetails />
+          </Suspense>
         </Box>
       </Paper>
     </Container>
