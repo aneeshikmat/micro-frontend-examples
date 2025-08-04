@@ -5,27 +5,28 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import AddIcon from '@mui/icons-material/Add';
 import eventBus from 'event-bus';
 
-const PaymentDetails = () => {
-  // Mock payment data
-  const paymentMethods = [
-    {
-      id: 1,
-      type: 'Credit Card',
-      cardNumber: '**** **** **** 4567',
-      cardHolder: 'John Doe',
-      expiryDate: '09/2027',
-      isDefault: true
-    },
-    {
-      id: 2,
-      type: 'Credit Card',
-      cardNumber: '**** **** **** 8901',
-      cardHolder: 'John Doe',
-      expiryDate: '12/2025',
-      isDefault: false
-    }
-  ];
+// Mock payment data
+const paymentMethods = [
+  {
+    id: 1,
+    type: 'Credit Card',
+    cardNumber: '**** **** **** 4567',
+    cardHolder: 'Anees Hikmat',
+    expiryDate: '09/2027',
+    isDefault: true
+  },
+  {
+    id: 2,
+    type: 'Credit Card',
+    cardNumber: '**** **** **** 8901',
+    cardHolder: 'Anees Hikmat',
+    expiryDate: '12/2025',
+    isDefault: false
+  }
+];
 
+
+const PaymentDetails = () => {
   // Use state for payment history to allow dynamic updates
   const [paymentHistory, setPaymentHistory] = useState([
     {
