@@ -3,7 +3,7 @@ import { Box, Container, Typography, Paper, Grid, Card, CardContent, Divider, Ch
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import PaymentIcon from '@mui/icons-material/Payment';
 import AddIcon from '@mui/icons-material/Add';
-import eventBus from 'host/eventBus';
+import eventBus from 'event-bus';
 
 const PaymentDetails = () => {
   // Mock payment data

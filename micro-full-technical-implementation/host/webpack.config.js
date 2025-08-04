@@ -41,9 +41,6 @@ module.exports = {
         catalog: "catalog@http://localhost:8103/remoteEntry.js",
         myaccount: "myaccount@http://localhost:8106/remoteEntry.js",
       },
-      exposes: {
-        "./eventBus": "./src/eventBus.js",
-      },
       shared: {
         react: { 
           singleton: true, 
@@ -73,6 +70,10 @@ module.exports = {
           singleton: true, 
           requiredVersion: "^6.16.0" 
         },
+        "event-bus": {
+          singleton: true,
+          requiredVersion: "^1.0.0"
+        }
       },
     }),
   ],

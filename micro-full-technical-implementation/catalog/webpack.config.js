@@ -39,9 +39,6 @@ module.exports = {
       exposes: {
         "./Catalog": "./src/Catalog",
       },
-      remotes: {
-        host: "host@http://localhost:8100/remoteEntry.js",
-      },
       shared: {
         react: { 
           singleton: true, 
@@ -71,6 +68,10 @@ module.exports = {
           singleton: true, 
           requiredVersion: "^6.16.0" 
         },
+        "event-bus": {
+          singleton: true,
+          requiredVersion: "^1.0.0"
+        }
       },
     }),
   ],

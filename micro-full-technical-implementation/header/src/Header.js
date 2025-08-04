@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {AppBar, Toolbar, Typography, Button, Stack} from '@mui/material';
 import {Link, useLocation} from 'react-router-dom';
-import eventBus from 'host/eventBus';
+import eventBus from 'event-bus';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === "true");

@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import {useNavigate} from "react-router-dom";
-import eventBus from 'host/eventBus';
+import eventBus from 'event-bus';
 
 const Signin = () => {
   // في العالم الحقيقي لا تقم بتصميم هذه الصفحة بهذه الشكل ^ـ*...هناك طرق أفضل وأسهل.. لكن لغايات الشرح فهذا أفضل

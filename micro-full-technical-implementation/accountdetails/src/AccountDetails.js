@@ -2,7 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Box, Container, Typography, Paper, Grid, Avatar, Chip } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HistoryIcon from '@mui/icons-material/History';
-import eventBus from 'host/eventBus';
+import eventBus from 'event-bus';
+
+// Mock account data
+const accountData = {
+  name: 'Anees Hikmat',
+  email: 'anees@example.com',
+  username: '2nees',
+  accountType: 'Premium',
+  memberSince: 'January 15, 2023',
+  lastLogin: new Date().toLocaleString()
+};
 
 const AccountDetails = () => {
   // State for historical orders count
@@ -22,16 +32,6 @@ const AccountDetails = () => {
       eventBus.off('payment:history:added', handlePaymentHistoryAdded);
     };
   }, []);
-
-  // Mock account data
-  const accountData = {
-    name: 'Anees Hikmat',
-    email: 'anees@example.com',
-    username: '2nees',
-    accountType: 'Premium',
-    memberSince: 'January 15, 2023',
-    lastLogin: new Date().toLocaleString()
-  };
 
   return (
     <Container component="main" sx={{ py: 3 }}>
