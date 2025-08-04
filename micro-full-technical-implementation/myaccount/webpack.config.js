@@ -40,7 +40,6 @@ module.exports = {
         "./MyAccount": "./src/MyAccount",
       },
       remotes: {
-        host: "host@http://localhost:8100/remoteEntry.js",
         accountdetails: "accountdetails@http://localhost:8104/remoteEntry.js",
         paymentdetails: "paymentdetails@http://localhost:8105/remoteEntry.js",
       },

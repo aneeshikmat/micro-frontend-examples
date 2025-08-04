@@ -5,7 +5,7 @@ const ForExampleLink = React.forwardRef((props, ref) => {
   const location = useLocation();
 
   const toUrl = useMemo(() => {
-    if (location.pathname.startsWith('/catalog')) {
+    if (location.pathname.startsWith('/catalog')) {// لغايات المثال قمنا بوضع ال path بشكل static
       return `/catalog${props.to}`;
     }
 

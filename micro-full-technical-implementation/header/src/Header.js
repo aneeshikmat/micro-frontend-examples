@@ -22,7 +22,6 @@ const Header = () => {
     eventBus.on('user:login', loginHandler);
     eventBus.on('user:logout', logoutHandler);
 
-    // Cleanup event listeners on unmount
     return () => {
       eventBus.off('user:login', loginHandler);
       eventBus.off('user:logout', logoutHandler);
