@@ -1,0 +1,25 @@
+{
+  "name": "webpack-proxy-example",
+  "version": "1.0.0",
+  "description": "Example demonstrating webpack dev server proxy configuration",
+  "main": "index.js",
+  "scripts": {
+    "start:api": "node api-server/server.js",
+    "start:frontend": "cd frontend && npm start",
+    "start": "concurrently \"npm run start:api\" \"npm run start:frontend\"",
+    "install:all": "npm install && cd frontend && npm install",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "webpack",
+    "proxy",
+    "micro-frontend",
+    "dev-server"
+  ],
+  "author": "Anees Hikmat Abu Hamid",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "concurrently": "^8.2.0"
+  }
+}
